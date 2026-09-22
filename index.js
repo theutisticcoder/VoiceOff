@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
         console.log(rooms)
         if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length === (rooms[rooms.findIndex(r => r.people.includes(socket.id))].people.length)) {
             setTimeout(async () => {
-                texts = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content;
+                texts = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0];
                 shuffle(texts);
                 console.log(texts)
                 var sockets = await io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets();
