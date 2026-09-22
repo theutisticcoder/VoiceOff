@@ -44,7 +44,7 @@
                document.querySelector("#game").innerHTML = "";
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in your own voice and topic. Limit: 5 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text1sub", document.querySelector("textarea").innerHTML);
+                    socket.emit("text1sub", document.querySelector("textarea").innerText);
                     document.querySelector("textarea").remove()
                }, 15000)
 

@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("text1sub", t => {
+        console.log(t)
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({ text1: t, text2: "", text3: "", text4: "", text5: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", });
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         setTimeout(() => {
