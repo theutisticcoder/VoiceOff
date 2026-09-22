@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
         const sockets = await io.in(n[1]).fetchSockets()
         if (sockets.length === 0) {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: true });
-            rooms.push({ host: socket.id, name: n[1], content: [], people: [] })
+            rooms.push({ host: socket.id, name: n[1], content: [], people: [], current: []})
         }
         else {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: false });
@@ -50,21 +50,15 @@ io.on('connection', (socket) => {
     socket.on("text1sub", t => {
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({text1: t, text2: "", text3: "", text4: "", text5:"",voice1: "", voice2: "", voice3: "", voice4: "", voice5:"", });
         console.log(rooms)
-        if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length === (rooms[rooms.findIndex(r => r.people.includes(socket.id))].people.length)) {
+            shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
             setTimeout(async () => {
-                texts = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0];
-                shuffle(texts);
-                console.log(texts)
-                var sockets = await io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets();
-                sockets.forEach(s => {
                     console.log("socket here")
                     if (users.find(soc => soc.id === s.id).host == false) {
-                        socket.emit("voice1", texts[texts.length - 1].text1);
-                        texts.pop();
-                    }
-                })
+                        socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][texts.length - 1].text1);
+                        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].pop();
+                }
             }, 1000)
-        }
+        
 
     })
 
