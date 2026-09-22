@@ -43,7 +43,7 @@ io.on('connection', (socket) => {
     })
     socket.on("start", rm => {
         console.log(rm);
-        socket.to(rm).broadcast.emit("text1");
+        socket.to(rm).emit("text1");
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
     })
 
