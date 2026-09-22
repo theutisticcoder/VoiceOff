@@ -28,7 +28,7 @@
           socket.on("player", p => {
                if (p.host == true) {
                     document.querySelector("#game").innerHTML += "<button id='sg'>Start Game</button>"
-                    document.querySelector("#sg").onlick = () => {
+                    document.querySelector("#sg").onclick = () => {
                          alert("Starting Game");
                          socket.emit("start", p.room);
                     }
