@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
         const sockets = await io.in(n[1]).fetchSockets()
         if (sockets.length === 0) {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: true });
-            rooms.push({ host: socket.id, name: n[1], content: [], people: [], current: []})
+            rooms.push({ host: socket.id, name: n[1], content: [], people: [], current: [] })
         }
         else {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: false });
@@ -48,16 +48,17 @@ io.on('connection', (socket) => {
     })
 
     socket.on("text1sub", t => {
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({text1: t, text2: "", text3: "", text4: "", text5:"",voice1: "", voice2: "", voice3: "", voice4: "", voice5:"", });
-        console.log(rooms)
-            shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
-            setTimeout(async () => {
-                    console.log("socket here")
-                        socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1);
-                        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].pop();
-                
-            }, 1000)
-        
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({ text1: t, text2: "", text3: "", text4: "", text5: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", });
+        shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
+        setTimeout(() => {
+            console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0])
+
+            console.log("socket here")
+            socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1);
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].pop();
+
+        }, 100)
+
 
     })
 
