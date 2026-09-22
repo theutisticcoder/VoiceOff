@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://cdn.jsdelivr.net/npm/socket.io@4.8.3/client-dist/socket.io.min.js"></script>
+   <title>VoiceOff</title>
+</head>
+<body>
+   <h1>Broken Lit Mag Phone</h1>
 
+   <script>
+        var name,rn;
+       const socket = io();
+       socket.on("connect", ()=>{
+            var room = confirm("Create a room? Click 'cancel' to join an existing one.");
+            if(room == true){
+                 rn = prompt("Create a room name");
+            }
+            else{
+                 rn = prompt("Enter the room name")
+            }
+            name = prompt("Write your name");
+            socket.emit("joined", [name, rn])
+       });
+     
+     
+   </script>
+</body>
+</html>
