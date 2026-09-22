@@ -42,7 +42,8 @@ io.on('connection', (socket) => {
         socket.emit("player", users[sockets.length]);
     })
     socket.on("start", rm => {
-        socket.in(rm).broadcast.emit("text1");
+        console.log(rm);
+        socket.to(rm).broadcast.emit("text1");
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
     })
 

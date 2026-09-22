@@ -26,7 +26,6 @@
                socket.emit("joined", [name, rn])
           });
           socket.on("player", p => {
-               console.log(p);
                if (p.host == true) {
                     document.querySelector("#game").innerHTML += "<button id='sg'>Start Game</button>"
                     document.querySelector("#sg").onclick = () => {
