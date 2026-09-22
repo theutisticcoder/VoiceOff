@@ -53,8 +53,10 @@ io.on('connection', (socket) => {
             setTimeout(() => {
                 texts = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content;
                 shuffle(texts);
+                console.log(texts)
                 var sockets = io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets();
                 sockets.forEach(s => {
+                    console.log("socket here")
                     if (users.find(soc => soc.id === s.id).host == false) {
                         socket.emit("voice1", texts[texts.length - 1].text1);
                         texts.pop();
