@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
             socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1);
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].pop();
 
-        }, 100)
+        }, 1000)
 
 
     })
