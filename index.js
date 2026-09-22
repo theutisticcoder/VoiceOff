@@ -37,7 +37,6 @@ io.on('connection', (socket) => {
         else {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: false });
             rooms[rooms.findIndex(r => r.name === n[1])].people.push(socket.id)
-
         }
         socket.join(n[1]);
         socket.emit("player", users[sockets.length]);
