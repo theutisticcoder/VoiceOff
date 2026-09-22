@@ -47,15 +47,15 @@ io.on('connection', (socket) => {
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
     })
 
-    socket.on("text1sub", (t) => {
+    socket.on("text1sub", t => {
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({text1: t, text2: "", text3: "", text4: "", text5:"",voice1: "", voice2: "", voice3: "", voice4: "", voice5:"", });
         console.log(rooms)
         if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length === (rooms[rooms.findIndex(r => r.people.includes(socket.id))].people.length)) {
-            setTimeout(() => {
+            setTimeout(async () => {
                 texts = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content;
                 shuffle(texts);
                 console.log(texts)
-                var sockets = io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets();
+                var sockets = await io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets();
                 sockets.forEach(s => {
                     console.log("socket here")
                     if (users.find(soc => soc.id === s.id).host == false) {
