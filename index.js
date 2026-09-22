@@ -27,7 +27,7 @@ function shuffle(array) {
 app.use(express.static(__dirname));
 // Handle client connections
 io.on('connection', (socket) => {
-    socket.on("joined", (n) => {
+    socket.on("joined", async (n) => {
         console.log(n)
         const sockets = await io.in(n[1]).fetchSockets()
         if (sockets.length === 0) {
