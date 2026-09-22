@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
             shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
             setTimeout(async () => {
                     console.log("socket here")
-                        socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][texts.length - 1].text1);
+                        socket.emit("voice1", rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0][rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1);
                         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].pop();
                 
             }, 1000)
