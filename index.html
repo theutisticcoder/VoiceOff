@@ -56,8 +56,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text2sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text2sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -68,8 +68,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text3sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text3sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -80,8 +80,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text4sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text4sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -92,8 +92,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text5sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text5sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -104,8 +104,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text6sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text6sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -116,8 +116,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text7sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text7sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -128,8 +128,8 @@
                document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("text8sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("text8sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
 
@@ -137,11 +137,12 @@
           socket.on("voice1", t => {
                var d = t.text;
                var t1= t.t1;
+               alert(t1);
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice1sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice1sub", {text: document.querySelector("textarea").value, t1: t1});
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -151,8 +152,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice2sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice2sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -162,8 +163,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice3sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice3sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -173,8 +174,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice4sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice4sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -184,8 +185,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice5sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice5sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -195,8 +196,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice6sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice6sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -206,8 +207,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice7sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice7sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
@@ -217,8 +218,8 @@
                document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
                document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
-                    socket.emit("voice8sub", {text: document.querySelector("textarea").value, t1: t.t1} );
-                    console.log({text: document.querySelector("textarea").value, t1: t.t1} )
+                    socket.emit("voice8sub", {text: document.querySelector("textarea").value, t1: t1} );
+                    console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
                }, 40000)
           })
