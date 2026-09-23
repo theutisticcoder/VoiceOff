@@ -39,14 +39,14 @@ io.on('connection', (socket) => {
         socket.join(n[1]);
         socket.emit("player", users[sockets.length]);
     })
-    socket.on("start", rm => {
+    io.on("start", rm => {
         console.log(rm);
         io.to(rm).emit("text1");
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
     })
 
     socket.on("text1sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
         var t = text;
         console.log(t)
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ text1: t, text2: "", text3: "", text4: "", text5: "", text6: "", text7: "", text8: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", voice6: "", voice7: "", voice8: "" });
@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
 
     })
     socket.on("voice1sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice2sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -103,7 +103,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice3sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -123,7 +123,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice4sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -143,7 +143,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice5sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -163,7 +163,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice6sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -184,7 +184,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("voice7sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -204,7 +204,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice8sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -223,7 +223,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text2sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -243,7 +243,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text3sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -263,7 +263,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text4sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -283,7 +283,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text5sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -303,7 +303,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text6sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -323,7 +323,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text7sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
@@ -343,7 +343,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text8sub", text => {
-        if (users.find(s => s.id === socket.id).host == true) return;
+        
 
         var t = text.text;
         var t1 = text.t1;
