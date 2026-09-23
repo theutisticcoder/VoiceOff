@@ -30,8 +30,7 @@ io.on('connection', (socket) => {
         const sockets = await io.in(n[1]).fetchSockets()
         if (sockets.length === 0) {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: true });
-            rooms.push({ host: socket.id, name: n[1], content: [], people: [], current: [] })
-            rooms[rooms.findIndex(r => r.name === n[1])].people.push(socket.id)
+            rooms.push({ host: socket.id, name: n[1], content: [], people: [socket.id], current: [] })
         }
         else {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: false });
@@ -70,7 +69,7 @@ io.on('connection', (socket) => {
         var t1 = text.t1;
         console.log(t)
         console.log(t1)
-        console.log(rooms);
+        console.log(JSON.stringify(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content));
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(tex => tex.text1 === t1).voice1 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
