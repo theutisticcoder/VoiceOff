@@ -48,7 +48,7 @@ io.on('connection', (socket) => {
     socket.on("text1sub", text => {
         var t = text;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({ text1: t, text2: "", text3: "", text4: "", text5: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", });
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({ text1: t, text2: "", text3: "", text4: "", text5: "", text6: "", text7: "", text8: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "",voice6: "", voice7:"", voice8: "" });
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
         setTimeout(() => {
@@ -66,7 +66,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice1 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice1 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -84,7 +84,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice2 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice2 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -101,7 +101,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice3 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice3 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -119,7 +119,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice4 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice4 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -137,7 +137,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice5 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice5 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -155,7 +155,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice6 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice6 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -173,7 +173,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice7 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice7 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -191,7 +191,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).voice8 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).voice8 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -208,7 +208,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text2 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text2 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -226,7 +226,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text3 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text3 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -244,7 +244,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text4 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text4 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -262,7 +262,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text5 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text5 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -280,7 +280,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text6 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text6 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -298,7 +298,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text7 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text7 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
@@ -316,7 +316,7 @@ io.on('connection', (socket) => {
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 = t1).text8 = t;
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].find(tex => tex.text1 === t1).text8 = t;
 
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]
