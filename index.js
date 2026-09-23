@@ -6,9 +6,6 @@ const server = http.createServer(app);
 const io = new Server(server);
 var users = [];
 var rooms = [];
-var count = 0;
-var texts;
-var voices;
 // Serve static files
 function shuffle(array) {
     let currentIndex = array.length;
