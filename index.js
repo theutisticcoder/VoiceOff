@@ -39,7 +39,7 @@ io.on('connection', (socket) => {
         socket.join(n[1]);
         socket.emit("player", users[sockets.length]);
     })
-    io.on("start", rm => {
+    socket.on("start", rm => {
         console.log(rm);
         io.to(rm).emit("text1");
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
