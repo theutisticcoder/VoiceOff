@@ -46,16 +46,16 @@ io.on('connection', (socket) => {
     })
 
     socket.on("text1sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
         var t = text;
         console.log(t)
-        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ text1: t, text2: "", text3: "", text4: "", text5: "", text6: "", text7: "", text8: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "",voice6: "", voice7:"", voice8: "" });
+        rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ text1: t, text2: "", text3: "", text4: "", text5: "", text6: "", text7: "", text8: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", voice6: "", voice7: "", voice8: "" });
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content)
 
-            console.log("socket here")
-            socket.emit("voice1", {t1: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text1,  text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text1});
+            socket.emit("voice1", { t1: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text1 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
@@ -63,6 +63,8 @@ io.on('connection', (socket) => {
 
     })
     socket.on("voice1sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -73,16 +75,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text2", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice1});
+            socket.emit("text2", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice1 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice2sub", text => {
+    socket.on("voice2sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -92,15 +95,16 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
-            console.log("socket here")
-            socket.emit("text3", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice2});
+            socket.emit("text3", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice2 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice3sub", text => {
+    socket.on("voice3sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -110,16 +114,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text4", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice3});
+            socket.emit("text4", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice3 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice4sub", text => {
+    socket.on("voice4sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -129,16 +134,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text5", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice4});
+            socket.emit("text5", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice4 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice5sub", text => {
+    socket.on("voice5sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -148,16 +154,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text6", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice5});
+            socket.emit("text6", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice5 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice6sub", text => {
+    socket.on("voice6sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -167,16 +174,18 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text7", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice6});
+            socket.emit("text7", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice6 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice7sub", text => {
+
+    socket.on("voice7sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -186,16 +195,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("text8", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice7});
+            socket.emit("text8", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].voice7 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-       socket.on("voice8sub", text => {
+    socket.on("voice8sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -205,15 +215,16 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
             socket.emit("final", rooms[rooms.findIndex(r => r.people.includes(socket.id))].current);
 
         }, 1000)
     })
-       socket.on("text2sub", text => {
+    socket.on("text2sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -223,16 +234,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice2", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text2});
+            socket.emit("voice2", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text2 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text3sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -242,16 +254,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice3", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text3});
+            socket.emit("voice3", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text3 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text4sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -261,16 +274,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice4", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text4});
+            socket.emit("voice4", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text4 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text5sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -280,16 +294,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice5", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text5});
+            socket.emit("voice5", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text5 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text6sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -299,16 +314,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice6", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text6});
+            socket.emit("voice6", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text6 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text7sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -318,16 +334,17 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice7", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text7});
+            socket.emit("voice7", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text7 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
     socket.on("text8sub", text => {
+        if (users.find(s => s.id === socket.id).host == true) return;
+
         var t = text.text;
         var t1 = text.t1;
         console.log(t)
@@ -337,16 +354,15 @@ io.on('connection', (socket) => {
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content);
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content
         setTimeout(() => {
-            
+
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].current)
 
-            console.log("socket here")
-            socket.emit("voice8", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text8});
+            socket.emit("voice8", { t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length - 1].text8 });
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
     })
-    
+
 
 });
 // Start the server
