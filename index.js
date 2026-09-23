@@ -31,6 +31,7 @@ io.on('connection', (socket) => {
         if (sockets.length === 0) {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: true });
             rooms.push({ host: socket.id, name: n[1], content: [], people: [], current: [] })
+            rooms[rooms.findIndex(r => r.name === n[1])].people.push(socket.id)
         }
         else {
             users.push({ name: n[0], stage: 0, id: socket.id, content: [], room: n[1], num: sockets.length, host: false });
@@ -46,7 +47,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("text1sub", text => {
-        
+
         var t = text;
         console.log(t)
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ text1: t, text2: "", text3: "", text4: "", text5: "", text6: "", text7: "", text8: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", voice6: "", voice7: "", voice8: "" });
@@ -63,7 +64,7 @@ io.on('connection', (socket) => {
 
     })
     socket.on("voice1sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -84,7 +85,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice2sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -103,7 +104,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice3sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -123,7 +124,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice4sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -143,7 +144,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice5sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -163,7 +164,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice6sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -184,7 +185,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("voice7sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -204,7 +205,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("voice8sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -223,7 +224,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text2sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -243,7 +244,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text3sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -263,7 +264,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text4sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -283,7 +284,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text5sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -303,7 +304,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text6sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -323,7 +324,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text7sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
@@ -343,7 +344,7 @@ io.on('connection', (socket) => {
         }, 1000)
     })
     socket.on("text8sub", text => {
-        
+
 
         var t = text.text;
         var t1 = text.t1;
