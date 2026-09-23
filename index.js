@@ -46,8 +46,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("text1sub", text => {
-        var t = text.text;
-        var t1 = text.t1;
+        var t = text;
         console.log(t)
         rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].push({ text1: t, text2: "", text3: "", text4: "", text5: "", voice1: "", voice2: "", voice3: "", voice4: "", voice5: "", });
         shuffle(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0]);
@@ -56,7 +55,7 @@ io.on('connection', (socket) => {
             console.log(rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0])
 
             console.log("socket here")
-            socket.emit("voice1", {t1: t1, text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1});
+            socket.emit("voice1", {t1: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1,  text: rooms[rooms.findIndex(r => r.people.includes(socket.id))].current[rooms[rooms.findIndex(r => r.people.includes(socket.id))].content[0].length - 1].text1});
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].current.pop();
 
         }, 1000)
