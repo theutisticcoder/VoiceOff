@@ -42,18 +42,180 @@
 
           socket.on("text1", () => {
                document.querySelector("#game").innerHTML = "";
-               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in your own voice and topic. Limit: 5 sentences.'></textarea>";
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in your own voice and topic. Limit: 3 sentences.'></textarea>";
                setTimeout(() => {
                     socket.emit("text1sub", document.querySelector("textarea").value);
                     console.log(document.querySelector("textarea").value)
                     document.querySelector("textarea").remove()
-               }, 15000)
+               }, 40000)
+
+          })
+          socket.on("text2", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text2sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+          socket.on("text3", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text3sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+          socket.on("text4", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text4sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+          socket.on("text5", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text5sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+          socket.on("text6", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text6sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+           socket.on("text7", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text7sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+
+          })
+          socket.on("text8", (d) => {
+               document.querySelector("#game").innerHTML = "Write based on this topic and voice: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Write a passage in the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("text8sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
 
           })
           socket.on("voice1", p => {
-               alert(p);
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice1sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice2", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice2sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice3", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice3sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice4", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice4sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice5", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice5sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice6", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice6sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice7", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice7sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
+          })
+          socket.on("voice8", p => {
+               document.querySelector("#game").innerHTML = "Descibe the voice and topic of this passage: " + d;
+               document.querySelector("#game").innerHTML += "<textarea placeholder='Descibe the voice and topic. Limit: 3 sentences.'></textarea>";
+               setTimeout(() => {
+                    socket.emit("voice8sub", document.querySelector("textarea").value);
+                    console.log(document.querySelector("textarea").value)
+                    document.querySelector("textarea").remove()
+               }, 40000)
           })
 
+          socket.on('final', parts=> {
+               parts.forEach(part=> {
+
+                    document.querySelector("#game").innerHTML += "Original: " + part.text1 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice1 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text2 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice2 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text3 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice3 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text4 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice4 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text5 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice5 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text6 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice6 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text7 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice7 + "->";
+                    document.querySelector("#game").innerHTML += "New Writing: " + part.text8 + "->";
+                    document.querySelector("#game").innerHTML += "Description: " + part.voice8;
+                    document.querySelector("#game").innerHTML += "<br><br><hr><br><br>";
+                    
+              })
+          })
      </script>
 </body>
 
