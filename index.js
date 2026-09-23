@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
     })
     socket.on("start", rm => {
         console.log(rm);
-        socket.to(rm).emit("text1");
+        io.to(rm).emit("text1");
         rooms[rooms.findIndex(r => r.name === rm)].content.push([])
     })
 
