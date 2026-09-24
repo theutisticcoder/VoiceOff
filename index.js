@@ -83,11 +83,13 @@ io.on('connection', (socket) => {
     socket.on("textcheck", () => {
         var current = rooms[rooms.findIndex(r => r.people.includes(socket.id))].content;
         shuffle(current);
+        console.log(current)
         if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 0) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("voice", current[current.length - 1].t1);
                     current.pop();
+                            console.log(current)
                 })
             })
         }
