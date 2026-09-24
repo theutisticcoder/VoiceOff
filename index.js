@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on("textsub", text => {
-        if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.length === 0) {
+        if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 0) {
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ t1: text, t2: "", t3: "", t4: "", t5: "", v1: "", v2: "", v3: "", v4: "", v5: "" })
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 2) {
