@@ -86,14 +86,16 @@ io.on('connection', (socket) => {
         if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 0) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
-                    s.emit("text", current[current.length - 1].t1);
+                    s.emit("voice", current[current.length - 1].t1);
+                    current.pop();
                 })
             })
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 2) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
-                    s.emit("text", current[current.length - 1].t2);
+                    s.emit("voice", current[current.length - 1].t2);
+                                        current.pop();
                 }
                 )
             }      )
@@ -101,21 +103,24 @@ io.on('connection', (socket) => {
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 4) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
-                    s.emit("text", current[current.length - 1].t3);
+                    s.emit("voice", current[current.length - 1].t3);
+                                        current.pop();
                 })
             })
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 6) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
-                    s.emit("text", current[current.length - 1].t4);
+                    s.emit("voice", current[current.length - 1].t4)
+                                        current.pop();
                 })
             })
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 8) {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
-                    s.emit("text", current[current.length - 1].t5);
+                    s.emit("voice", current[current.length - 1].t5);
+                                        current.pop();
                 })
             })
         }
@@ -128,6 +133,7 @@ io.on('connection', (socket) => {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("text", current[current.length - 1].v1);
+                                        current.pop();
                 })
             })
         }
@@ -135,6 +141,7 @@ io.on('connection', (socket) => {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("text", current[current.length - 1].v2);
+                                        current.pop();
                 }
                 )
             })
@@ -143,6 +150,7 @@ io.on('connection', (socket) => {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("text", current[current.length - 1].v3);
+                                        current.pop();
                 })
             })
         }
@@ -150,6 +158,7 @@ io.on('connection', (socket) => {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("text", current[current.length - 1].v4);
+                                        current.pop();
                 })
             })
         }
@@ -157,6 +166,7 @@ io.on('connection', (socket) => {
             io.in(rooms[rooms.findIndex(r => r.people.includes(socket.id))].name).fetchSockets().then(sockets => {
                 sockets.forEach(s => {
                     s.emit("text", current[current.length - 1].v5);
+                                        current.pop();
                 })
             })
         }
