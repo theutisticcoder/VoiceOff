@@ -12,6 +12,7 @@
      <h1>Broken Lit Mag Phone</h1>
      <div id="game"></div>
      <script>
+     var host = false; 
           var name, rn;
           const socket = io();
           socket.on("connect", () => {
@@ -33,6 +34,7 @@
                          socket.emit("start", p.room);
                          e.target.remove();
                     }
+                    host = true
                }
                else {
                     document.querySelector("#game").innerHTML += "Game Awaiting Host."
@@ -47,6 +49,9 @@
                     socket.emit("textsub", document.querySelector("textarea").value );
                     console.log( document.querySelector("textarea").value )
                     document.querySelector("textarea").remove()
+                    if(host){
+                         setTimeout(socket.emit('textcheck'),1000)
+                    }
                }, 40000)
 
           })
@@ -59,6 +64,9 @@
                     socket.emit("textsub", {text: document.querySelector("textarea").value, t1: t1} );
                     console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
+                    if(host){
+                         setTimeout(socket.emit('textcheck'),1000)
+                    }
                }, 40000)
 
           })
@@ -73,6 +81,9 @@
                     socket.emit("voicesub", {text: document.querySelector("textarea").value, t1: t1} );
                     console.log({text: document.querySelector("textarea").value, t1: t1} )
                     document.querySelector("textarea").remove()
+                    if(host){
+                         setTimeout(socket.emit('voicecheck'),1000)
+                    }
                }, 40000)
           })
          
