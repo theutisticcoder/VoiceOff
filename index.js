@@ -50,34 +50,34 @@ io.on('connection', (socket) => {
             rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.push({ t1: text, t2: "", t3: "", t4: "", t5: "", v1: "", v2: "", v3: "", v4: "", v5: "" })
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 2) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).t2 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 ===text.t1).t2 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 4) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).t3 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 ===text.t1).t3 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 6) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).t4 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).t4 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 8) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).t5 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).t5 = text.text;
         }
     })
 
     socket.on("voicesub", text => {
         if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 1) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).v1 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).v1 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 3) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).v2 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).v2 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 5) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).v3 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).v3 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 7) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).v4 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).v4 = text.text;
         }
         else if (rooms[rooms.findIndex(r => r.people.includes(socket.id))].count === 9) {
-            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 = text.t1).v5 = text.text;
+            rooms[rooms.findIndex(r => r.people.includes(socket.id))].content.find(c => c.t1 === text.t1).v5 = text.text;
         }
     })
     socket.on("textcheck", () => {
